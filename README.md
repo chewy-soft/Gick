@@ -6,6 +6,12 @@ https://www.boardgamereview.cn/
 ### Gallery Component
 首页展示用Gallery。
 
+### Image Component
+Image（ローダーとエラー表示付き）。
+
+### OGP
+リンク先の情報表示。
+
 #### 材料：
 * React-native: 0.55.4
 * react-native-vector-icons: 4.6.0
