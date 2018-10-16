@@ -13,7 +13,6 @@ class Image extends React.Component {
     width: null,
     height: null,
     loading: true,
-    thresholdReached: false,
     sourceKey: getSourceKey(this.props.source)
   };
 
@@ -36,17 +35,13 @@ class Image extends React.Component {
       }
     });
   };
-
   componentDidMount() {
-    this.thresholdTimer = setTimeout(() => {
-      this.setState({ thresholdReached: true });
-    }, 50);
+    this._mounted = true
   }
 
   componentWillUnmount() {
-    if (this.thresholdTimer) {
-      clearTimeout(this.thresholdTimer);
-    }
+    this._mounted = false
+
   }
 
   bubbleEvent = (propertyName, event) => {
@@ -60,30 +55,27 @@ class Image extends React.Component {
   };
 
   handleLoadEnd = event => {
-    this.resize();
-    this.bubbleEvent("onLoadEnd", event);
+    if (this._mounted) {
+      this.resize();
+      this.bubbleEvent("onLoadEnd", event);
+    }
   };
 
   handleError = event => {
-    this.setState({
-      loading: false,
-      error: event.nativeEvent
-    });
-    this.bubbleEvent("onError", event);
+    if (this._mounted) {
+      this.setState({
+        loading: false,
+        error: event.nativeEvent
+      });
+      this.bubbleEvent("onError", event);
+    }
   };
 
   render() {
     const { src, size, style } = this.props;
     const styles = getStyles(size || "middle");
     const params = getParams(size || "middle");
-    const {
-      width,
-      height,
-      sourceKey,
-      loading,
-      error,
-      thresholdReached
-    } = this.state;
+    const { width, height, sourceKey, loading, error } = this.state;
     if (src === undefined) {
       return (
         <View style={[styles.image, styles.error]}>
@@ -93,7 +85,7 @@ class Image extends React.Component {
     }
 
     let loader;
-    if (loading && thresholdReached) {
+    if (loading) {
       loader = (
         <View style={[styles.image, styles.loader]}>
           <Loader />
