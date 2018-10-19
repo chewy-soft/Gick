@@ -12,6 +12,17 @@ Image（ローダーとエラー表示付き）。
 ### OGP
 リンク先の情報表示。
 
+### View
+基本コンポーネント
+
+* View
+* HoverView
+* ExternalLinkView
+
+### Symbol
+ライブラリ使用
+（storybook追加予定）
+
 #### 材料：
 * React-native: 0.55.4
 * react-native-vector-icons: 4.6.0

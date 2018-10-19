@@ -12,36 +12,38 @@ class Image extends React.Component {
     uri: this.props.src,
     width: null,
     height: null,
-    loading: true,
+    loading: false,
     sourceKey: getSourceKey(this.props.source)
   };
 
   resize = () => {
     CustomImage.getSize(this.props.src, (width, height) => {
-      if (this.props.width && !this.props.height) {
-        this.setState({
-          width: this.props.width,
-          height: height * (this.props.width / width),
-          loading: false
-        });
-      } else if (!this.props.width && this.props.height) {
-        this.setState({
-          width: width * (this.props.height / height),
-          height: this.props.height,
-          loading: false
-        });
-      } else {
-        this.setState({ width: width, height: height, loading: false });
+      if (this._mounted) {
+        if (this.props.width && !this.props.height) {
+          this.setState({
+            width: this.props.width,
+            height: height * (this.props.width / width),
+            loading: false
+          });
+        } else if (!this.props.width && this.props.height) {
+          this.setState({
+            width: width * (this.props.height / height),
+            height: this.props.height,
+            loading: false
+          });
+        } else {
+          this.setState({ width: width, height: height, loading: false });
+        }
       }
     });
   };
   componentDidMount() {
-    this._mounted = true
+    this._mounted = true;
+    this.resize();
   }
 
   componentWillUnmount() {
-    this._mounted = false
-
+    this._mounted = false;
   }
 
   bubbleEvent = (propertyName, event) => {
@@ -51,12 +53,12 @@ class Image extends React.Component {
   };
 
   handleLoadStart = () => {
+    this.setState({ loading: true });
     this.bubbleEvent("onLoadStart");
   };
 
   handleLoadEnd = event => {
     if (this._mounted) {
-      this.resize();
       this.bubbleEvent("onLoadEnd", event);
     }
   };
@@ -71,6 +73,10 @@ class Image extends React.Component {
     }
   };
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state !== nextState;
+  }
+
   render() {
     const { src, size, style } = this.props;
     const styles = getStyles(size || "middle");
@@ -84,21 +90,6 @@ class Image extends React.Component {
       );
     }
 
-    let loader;
-    if (loading) {
-      loader = (
-        <View style={[styles.image, styles.loader]}>
-          <Loader />
-        </View>
-      );
-    } else if (error) {
-      loader = (
-        <View style={[styles.image, styles.error]}>
-          <Symbol name="brokenImage" size={params.svg} />
-        </View>
-      );
-    }
-
     let css_image;
     if (size == "auto") {
       css_image = [{ width: width, height: height }, style];
@@ -107,7 +98,7 @@ class Image extends React.Component {
     }
     return (
       <View style={styles.content}>
-        <CustomImage
+        {!error && <CustomImage
           style={css_image}
           key={sourceKey}
           source={{ uri: src }}
@@ -116,8 +107,17 @@ class Image extends React.Component {
           onLoad={this.handleLoad}
           onLoadEnd={this.handleLoadEnd}
           onError={this.handleError}
-        />
-        {loader}
+        />}
+        {loading && (
+          <View style={[styles.image, styles.loader]}>
+            <Loader />
+          </View>
+        )}
+        {error && (
+          <View style={[styles.image, styles.error]}>
+            <Symbol name="brokenImage" size={params.svg} />
+          </View>
+        )}
       </View>
     );
   }
