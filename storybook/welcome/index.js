@@ -36,6 +36,9 @@ const Welcome = props => (
       <ExternalLinkView url="https://boardgamereview.cn/">
         <Text style={styles.link}>WebSite</Text>
       </ExternalLinkView>
+      <ExternalLinkView url="https://scripts.boardgamereview.cn/GickApp1.1.apk">
+        <Text style={styles.link}>APKv1.1</Text>
+      </ExternalLinkView>
       <ExternalLinkView url="http://chewy-soft.com/">
         <Text style={styles.link}>Componey</Text>
       </ExternalLinkView>
