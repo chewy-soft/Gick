@@ -4,7 +4,7 @@ website
 https://www.boardgamereview.cn/
 
 ### Gick Components
-Storybook追加。
+[Storybook追加](https://chewy-soft.github.io/Gick/)
 
 #### 材料：
 * React-native: 0.55.4
