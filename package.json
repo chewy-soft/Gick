@@ -39,7 +39,7 @@
     "storybook": "./node_modules/.bin/start-storybook -p 7007 -c ./storybook",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build-gitpage": "build-storybook -s public -o .out",
+    "build-story": "build-storybook -c .storybook -o .out",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook-native": "storybook start",
