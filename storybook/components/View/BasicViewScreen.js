@@ -9,6 +9,7 @@ import { Text } from "react-native";
 import View from "../../../src/components/View/View";
 import HoverView from "../../../src/components/View/HoverView";
 import ScrollView from "../../../src/components/View/ScrollView";
+import ExternalLinkView from "../../../src/components/View/ExternalLinkView";
 
 let datas = [];
 for (var i = 0; i < 10; i++) {
@@ -60,6 +61,17 @@ export default props => (
           <ScrollView style={{ height: 50 }} underLine>
             {datas}
           </ScrollView>
+        </View>
+      }
+    />
+    <Description info="URL Link" />
+    <Example
+      example={
+        <View>
+          <Code>{`<ExternalLinkView><Text>WebSite</Text></ExternalLinkView>`}</Code>
+          <ExternalLinkView url="https://boardgamereview.cn/">
+            <Text>WebSite</Text>
+          </ExternalLinkView>
         </View>
       }
     />

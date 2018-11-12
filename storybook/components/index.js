@@ -1,14 +1,18 @@
 import React from "react";
 import { storiesOf } from "@storybook/react-native";
-import BasicView from "./View/BasicView";
-import LinearGradientView from "./View/LinearGradientView";
-import Icons from "./Symbol/Icons";
-import FadeView from "./View/FadeView";
-import InfinateScrollView from "./View/InfinateScrollView";
+import BasicViewScreen from "./View/BasicViewScreen";
+import LinearGradientViewScreen from "./View/LinearGradientViewScreen";
+import IconsScreen from "./Symbol/IconsScreen";
+import FadeViewScreen from "./View/FadeViewScreen";
+import InfinateScrollViewScreen from "./View/InfinateScrollViewScreen";
+import ButtonScreen from "./Button/ButtonScreen";
+import RoundButtonScreen from "./Button/RoundButtonScreen";
 
 export default storiesOf("Components", module)
-  .add("Icons", () => <Icons />)
-  .add("Default Views", () => <BasicView />)
-  .add("LinearGradient View", () => <LinearGradientView />)
-  .add("Fade View", () => <FadeView />)
-  .add("Infinate Scroll View", () => <InfinateScrollView />);
+  .add("Icons", () => <IconsScreen />)
+  .add("Default Views", () => <BasicViewScreen />)
+  .add("LinearGradient View", () => <LinearGradientViewScreen />)
+  .add("Fade View", () => <FadeViewScreen />)
+  .add("Infinate Scroll View", () => <InfinateScrollViewScreen />)
+  .add("Button", () => <ButtonScreen />)
+  .add("Round Button", () => <RoundButtonScreen />);

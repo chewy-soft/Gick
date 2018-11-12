@@ -1,6 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import colors from "../../colors";
+import { View } from "react-native";
 
 export default props => (
   <View
