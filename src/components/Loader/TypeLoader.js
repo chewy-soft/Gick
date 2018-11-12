@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
 import View from "../../components/View/View";
-import Symbol from "../../components/Symbol";
 
 const styles = StyleSheet.create({
   typeContent: {

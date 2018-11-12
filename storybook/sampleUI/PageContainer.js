@@ -1,5 +1,5 @@
-import React, { PureComponent } from "react";
-import { ScrollView, StyleSheet, Text, View, Dimensions } from "react-native";
+import React from "react";
+import { ScrollView, StyleSheet, View, Dimensions } from "react-native";
 
 const { height } = Dimensions.get("window");
 const styles = StyleSheet.create({

@@ -1,5 +1,4 @@
 import React from "react";
-import { AppRegistry, StyleSheet, Text, View } from "react-native";
 import SyntaxHighlighter from "react-native-syntax-highlighter";
 
 const Code = props => (
