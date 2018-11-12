@@ -1,0 +1,1 @@
+export const ramData = Math.random().toString(36);

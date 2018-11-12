@@ -1,14 +1,68 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  font-family: "varela_roundregular", "Whitney", "Helvetica Neue", "Helvetica",
+    "Segoe UI", "Microsoft YaHei", "微软雅黑", "Meiryo UI",
+    "Material Design Icons", "FontAwesome", -apple-system, BlinkMacSystemFont,
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Arial", "sans-serif";
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+::-webkit-scrollbar-track {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3) inset;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3) inset;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* fonts */
+@font-face {
+  font-family: "varela_roundregular";
+  src: url("fonts/VarelaRound-Regular-webfont.eot");
+  src: url("fonts/VarelaRound-Regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("fonts/VarelaRound-Regular-webfont.woff") format("woff"),
+    url("fonts/VarelaRound-Regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Material Design Icons";
+  src: url("fonts/materialdesignicons-webfont.eot?v=2.0.46");
+  src: url("fonts/materialdesignicons-webfont.eot?#iefix&v=2.0.46")
+      format("embedded-opentype"),
+    url("fonts/materialdesignicons-webfont.woff2?v=2.0.46") format("woff2"),
+    url("fonts/materialdesignicons-webfont.woff?v=2.0.46") format("woff"),
+    url("fonts/materialdesignicons-webfont.ttf?v=2.0.46") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FontAwesome";
+  src: url("fonts/fontawesome-webfont.eot?v=4.7.0");
+  src: url("fonts/fontawesome-webfont.eot?#iefix&v=4.7.0")
+      format("embedded-opentype"),
+    url("fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"),
+    url("fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"),
+    url("fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
