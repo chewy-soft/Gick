@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import { Example, ExampleDark } from "../../sampleUI/Example";
+import { Example } from "../../sampleUI/Example";
 import PageTitle from "../../sampleUI/PageTitle";
-import Description from "../../sampleUI/Description";
 import PageContainer from "../../sampleUI/PageContainer";
 import Code from "../../sampleUI/Code";
 import { View, Text } from "react-native";
 import InfinateScrollView from "../../../src/components/View/InfinateScrollView";
-import Button from "../../../src/components/Buttons/Button";
 
-export default class InfinateScrollViewScreen extends Component {
+export default class InfinateScroll extends Component {
   constructor() {
     super();
     this.state = { e1: true, e2: true };

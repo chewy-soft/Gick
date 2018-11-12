@@ -1,5 +1,4 @@
 import React from "react";
-import colors from "../../colors";
 import { View } from "react-native";
 import { AutoSizer, List } from "react-virtualized";
 import DefaultFooter from "./parts/ScrollFooter";

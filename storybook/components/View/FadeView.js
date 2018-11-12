@@ -1,18 +1,14 @@
 import React, { Component } from "react";
-import { Example, ExampleDark } from "../../sampleUI/Example";
+import { ExampleDark } from "../../sampleUI/Example";
 import PageTitle from "../../sampleUI/PageTitle";
-import Description from "../../sampleUI/Description";
 import PageContainer from "../../sampleUI/PageContainer";
 import Code from "../../sampleUI/Code";
 import { View, Text } from "react-native";
 import FadeView from "../../../src/components/View/FadeView";
 import Button from "../../../src/components/Buttons/Button";
 
-export default class AlertScreen extends Component {
-  constructor() {
-    super();
-    this.state = { e1: true, e2: true };
-  }
+export default class Fade extends Component {
+  state = { e1: true, e2: true };
   render() {
     return (
       <PageContainer>
