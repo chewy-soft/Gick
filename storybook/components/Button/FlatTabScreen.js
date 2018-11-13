@@ -16,14 +16,14 @@ export default props => (
         <View>
           <Code>
             {`<FlatTabButton title="title" button="button text" theme="blue" info="some sub info"
-              src="http://svg-support.boardgamereview.cn/013-people.png" onPress={...} />`}
+              src="..." onPress={...} />`}
           </Code>
           <FlatTabButton
             title="title"
             button="button text"
             theme="blue"
             info="some sub info"
-            src="http://svg-support.boardgamereview.cn/013-people.png"
+            src={null}
           />
           <Code>{'<FlatTabButton theme="green" ... />'}</Code>
           <FlatTabButton
