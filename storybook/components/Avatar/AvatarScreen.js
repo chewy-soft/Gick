@@ -7,6 +7,7 @@ import { Example, ExampleDark } from "../../sampleUI/Example";
 import Description from "../../sampleUI/Description";
 import PropSize from "./expamles/PropSize";
 import PropOnline from "./expamles/PropOnline";
+import PropBadge from "./expamles/PropBadge";
 
 export default props => (
   <PageContainer>
@@ -32,5 +33,16 @@ export default props => (
       }
     />
     <ExampleDark example={<PropOnline theme="dark" />} />
+    <Description info="With Badge" />
+    <ExampleDark
+      example={
+        <View>
+          <Code>
+            {"<Avatar size='l' online='online' userBadge='curator' />"}
+          </Code>
+          <PropBadge />
+        </View>
+      }
+    />
   </PageContainer>
 );

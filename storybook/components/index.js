@@ -10,6 +10,9 @@ import RoundButtonScreen from "./Button/RoundButtonScreen";
 import FlatButtonScreen from "./Button/FlatButtonScreen";
 import FlatTabScreen from "./Button/FlatTabScreen";
 import AvatarScreen from "./Avatar/AvatarScreen";
+import FormatScreen from "./Text/FormatScreen";
+import ImageScreen from "./Image/ImageScreen";
+import PaperScreen from "./Paper/PaperScreen";
 
 export default storiesOf("Components", module)
   .add("Icons", () => <IconsScreen />)
@@ -21,4 +24,7 @@ export default storiesOf("Components", module)
   .add("Round Button", () => <RoundButtonScreen />)
   .add("Flat Button", () => <FlatButtonScreen />)
   .add("Flat Tab Button", () => <FlatTabScreen />)
-  .add("Avatar", () => <AvatarScreen />);
+  .add("Avatar", () => <AvatarScreen />)
+  .add("Format", () => <FormatScreen />)
+  .add("Image", () => <ImageScreen />)
+  .add("Paper", () => <PaperScreen />);

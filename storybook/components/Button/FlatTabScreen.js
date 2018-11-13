@@ -15,15 +15,14 @@ export default props => (
       example={
         <View>
           <Code>
-            {`<FlatTabButton title="title" button="button text" theme="blue" info="some sub info"
-              src="..." onPress={...} />`}
+            {`<FlatTabButton title="title" button="button text" theme="blue" info="some sub info" src="..." onPress={...} />`}
           </Code>
           <FlatTabButton
             title="title"
             button="button text"
             theme="blue"
             info="some sub info"
-            src={null}
+            src="http://svg-support.boardgamereview.cn/013-people.png"
           />
           <Code>{'<FlatTabButton theme="green" ... />'}</Code>
           <FlatTabButton
@@ -31,7 +30,7 @@ export default props => (
             button="button text"
             theme="green"
             info="some sub info"
-            svg="innocent"
+            icon="innocent"
           />
           <Code>{'<FlatTabButton theme="orange" ... />'}</Code>
           <FlatTabButton
@@ -39,7 +38,7 @@ export default props => (
             button="button text"
             theme="orange"
             info="some sub info"
-            svg="innocent"
+            icon="innocent"
           />
           <Code>{'<FlatTabButton theme="gold" ... />'}</Code>
           <FlatTabButton
@@ -47,7 +46,7 @@ export default props => (
             button="button text"
             theme="gold"
             info="some sub info"
-            svg="innocent"
+            icon="innocent"
           />
           <Code>{'<FlatTabButton theme="disable" ... />'}</Code>
           <FlatTabButton
@@ -55,7 +54,7 @@ export default props => (
             button="button text"
             theme="disable"
             info="some sub info"
-            svg="innocent"
+            icon="innocent"
           />
         </View>
       }
