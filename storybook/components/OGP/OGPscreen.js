@@ -1,8 +1,8 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import Code from "../../sampleUI/Code";
 import PageTitle from "../../sampleUI/PageTitle";
-import { Example, ExampleDark } from "../../sampleUI/Example";
+import { ExampleDark } from "../../sampleUI/Example";
 import Description from "../../sampleUI/Description";
 import PageContainer from "../../sampleUI/PageContainer";
 import OGP from "../../../src/components/OGP/index";

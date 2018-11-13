@@ -1,19 +1,8 @@
 import React, { Component } from "react";
-import { StyleSheet, Animated } from "react-native";
-
-const styles = StyleSheet.create({
-  container: {
-    overflow: "hidden"
-  }
-});
+import { Animated } from "react-native";
 
 class ElasticView extends Component {
-  constructor(props) {
-    super();
-    this.state = {
-      animation: new Animated.Value(0)
-    };
-  }
+  state = { animation: new Animated.Value(0) };
 
   componentDidMount() {
     Animated.timing(this.state.animation, {
@@ -45,7 +34,7 @@ class ElasticView extends Component {
         ? { height: interpolate }
         : { width: interpolate };
     return (
-      <Animated.View style={[styles.container, animation, style]}>
+      <Animated.View style={[{ overflow: "hidden" }, animation, style]}>
         {children}
       </Animated.View>
     );

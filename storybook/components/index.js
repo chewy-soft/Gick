@@ -13,6 +13,12 @@ import AvatarScreen from "./Avatar/AvatarScreen";
 import FormatScreen from "./Text/FormatScreen";
 import ImageScreen from "./Image/ImageScreen";
 import PaperScreen from "./Paper/PaperScreen";
+import ModalScreen from "./Modal/ModalScreen";
+import OGPscreen from "./OGP/OGPscreen";
+import GalleryScreen from "./Gallery/GalleryScreen";
+import LoaderScreen from "./Loader/LoaderScreen";
+import ElasticViewScreen from "./View/ElasticViewScreen";
+import DividerScreen from "./Divider/DividerScreen";
 
 export default storiesOf("Components", module)
   .add("Icons", () => <IconsScreen />)
@@ -27,4 +33,10 @@ export default storiesOf("Components", module)
   .add("Avatar", () => <AvatarScreen />)
   .add("Format", () => <FormatScreen />)
   .add("Image", () => <ImageScreen />)
-  .add("Paper", () => <PaperScreen />);
+  .add("Paper", () => <PaperScreen />)
+  .add("Modal", () => <ModalScreen />)
+  .add("OGP", () => <OGPscreen />)
+  .add("Gallery", () => <GalleryScreen />)
+  .add("Loader", () => <LoaderScreen />)
+  .add("Elastic View", () => <ElasticViewScreen />)
+  .add("Divider", () => <DividerScreen />);
