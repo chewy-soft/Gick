@@ -1,10 +1,10 @@
 import React from "react";
-import { View } from "react-native";
 import Button from "./Button";
 
-export default props => (
-  <View>
-    {props.order == "up" && (
+export default props => {
+  const { order } = props;
+  if (order == "up")
+    return (
       <Button
         size="s"
         theme="orange"
@@ -12,8 +12,9 @@ export default props => (
         icon="sortUp"
         onPress={props.onPress}
       />
-    )}
-    {props.order == "down" && (
+    );
+  if (order == "down")
+    return (
       <Button
         size="s"
         theme="darkGreen"
@@ -21,8 +22,9 @@ export default props => (
         icon="sortDown"
         onPress={props.onPress}
       />
-    )}
-    {props.order == "unset" && (
+    );
+  if (order == "unset")
+    return (
       <Button
         size="s"
         theme="darkBlue"
@@ -30,6 +32,5 @@ export default props => (
         icon="sort"
         onPress={props.onPress}
       />
-    )}
-  </View>
-);
+    );
+};

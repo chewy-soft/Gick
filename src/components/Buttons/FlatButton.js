@@ -4,7 +4,7 @@ import Symbol from "../Symbol";
 import View from "../View/View";
 import { getStyles } from "./styles/FlatButton/styles";
 
-class FlatButton extends React.Component {
+export default class FlatButton extends React.Component {
   state = { hover: false };
   highLight = () => {
     this.setState({ hover: !this.state.hover });
@@ -23,7 +23,11 @@ class FlatButton extends React.Component {
     const _hover = this.props.highLight || this.state.hover;
 
     return (
-      <View disabled={(theme == "disable" && true) || false} onPress={onPress} style={{flex: 1}}>
+      <View
+        disabled={(theme == "disable" && true) || false}
+        onPress={onPress}
+        style={{ flex: 1 }}
+      >
         <View
           style={[styles.button, _hover && styles.buttonHover, radius]}
           onMouseOver={this.highLight}
@@ -40,5 +44,3 @@ class FlatButton extends React.Component {
     );
   }
 }
-
-export default FlatButton;

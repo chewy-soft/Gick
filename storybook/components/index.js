@@ -8,6 +8,7 @@ import InfinateScrollViewScreen from "./View/InfinateScrollViewScreen";
 import ButtonScreen from "./Button/ButtonScreen";
 import RoundButtonScreen from "./Button/RoundButtonScreen";
 import FlatButtonScreen from "./Button/FlatButtonScreen";
+import FlatTabScreen from "./Button/FlatTabScreen";
 
 export default storiesOf("Components", module)
   .add("Icons", () => <IconsScreen />)
@@ -17,4 +18,5 @@ export default storiesOf("Components", module)
   .add("Infinate Scroll View", () => <InfinateScrollViewScreen />)
   .add("Button", () => <ButtonScreen />)
   .add("Round Button", () => <RoundButtonScreen />)
-  .add("Flat Button", () => <FlatButtonScreen />);
+  .add("Flat Button", () => <FlatButtonScreen />)
+  .add("Flat Tab Button", () => <FlatTabScreen />);
