@@ -5,7 +5,7 @@ import Button from "../../../../src/components/Buttons/Button";
 
 const { width } = Dimensions.get("window");
 
-const ButtonThemeExample = () => (
+export default props => (
   <View style={{ flexDirection: width > 1024 ? "row" : "column" }}>
     <Button theme="halfBlue" content="blue" icon="qq" />
     <DividerHorizontal />
@@ -28,5 +28,3 @@ const ButtonThemeExample = () => (
     <Button theme="halfYellow" content="yellow" />
   </View>
 );
-
-export default ButtonThemeExample;

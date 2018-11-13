@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { DividerHorizontal } from "../../../sampleUI/helps";
 import RoundButton from "../../../../src/components/Buttons/RoundButton";
 
-export default (RoundSizeExample = () => (
+export default props => (
   <View style={{ flexDirection: "row" }}>
     <RoundButton theme="qq" size="xl" icon="qq" />
     <DividerHorizontal />
@@ -15,4 +15,4 @@ export default (RoundSizeExample = () => (
     <DividerHorizontal />
     <RoundButton theme="qq" size="xs" icon="qq" />
   </View>
-));
+);

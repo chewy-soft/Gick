@@ -3,9 +3,13 @@ import { View } from "react-native";
 import { DividerHorizontal } from "../../../sampleUI/helps";
 import RoundButton from "../../../../src/components/Buttons/RoundButton";
 
-const RoundThemeExample = () => (
+export default props => (
   <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-    <RoundButton theme="qq" icon="qq" onPress={() => console.log("round button")} />
+    <RoundButton
+      theme="qq"
+      icon="qq"
+      onPress={() => console.log("round button")}
+    />
     <DividerHorizontal />
     <RoundButton theme="lightBlue" icon="add" />
     <DividerHorizontal />
@@ -30,5 +34,3 @@ const RoundThemeExample = () => (
     <RoundButton theme="disable" icon="close" />
   </View>
 );
-
-export default RoundThemeExample;
