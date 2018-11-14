@@ -19,6 +19,8 @@ import GalleryScreen from "./Gallery/GalleryScreen";
 import LoaderScreen from "./Loader/LoaderScreen";
 import ElasticViewScreen from "./View/ElasticViewScreen";
 import DividerScreen from "./Divider/DividerScreen";
+import LabelScreen from "./Label/LabelScreen";
+import InputScreen from "./TextField/InputScreen";
 
 export default storiesOf("Components", module)
   .add("Icons", () => <IconsScreen />)
@@ -39,4 +41,6 @@ export default storiesOf("Components", module)
   .add("Gallery", () => <GalleryScreen />)
   .add("Loader", () => <LoaderScreen />)
   .add("Elastic View", () => <ElasticViewScreen />)
-  .add("Divider", () => <DividerScreen />);
+  .add("Divider", () => <DividerScreen />)
+  .add("Label", () => <LabelScreen />)
+  .add("Text Field", () => <InputScreen />);
