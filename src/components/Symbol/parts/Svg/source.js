@@ -8,5 +8,9 @@ export default {
   reviewer: "http://svg-support.boardgamereview.cn/003-chevron-2.png",
   supporter: "http://svg-support.boardgamereview.cn/002-chevron.png",
   curator: "http://svg-support.boardgamereview.cn/001-chevron-1.png",
-  admin: "http://svg-support.boardgamereview.cn/adminBadge.png"
+  admin: "http://svg-support.boardgamereview.cn/adminBadge.png",
+  //alert
+  error: "http://svg-support.boardgamereview.cn/error.png",
+  checked: "http://svg-support.boardgamereview.cn/checked.png",
+  warning: "http://svg-support.boardgamereview.cn/warning.png"
 };

@@ -1,6 +1,5 @@
 import React from "react";
-import colors from "../../../colors";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Divider from "../../Divider";
 import Loader from "../../Loader";
 

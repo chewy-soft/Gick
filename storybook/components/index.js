@@ -21,6 +21,9 @@ import ElasticViewScreen from "./View/ElasticViewScreen";
 import DividerScreen from "./Divider/DividerScreen";
 import LabelScreen from "./Label/LabelScreen";
 import InputScreen from "./TextField/InputScreen";
+import AlertScreen from "./Alert/AlertScreen";
+import ToolTipScreen from "./ToolTip/ToolTipScreen";
+import CardScreen from "./Card/CardScreen";
 
 export default storiesOf("Components", module)
   .add("Icons", () => <IconsScreen />)
@@ -43,4 +46,7 @@ export default storiesOf("Components", module)
   .add("Elastic View", () => <ElasticViewScreen />)
   .add("Divider", () => <DividerScreen />)
   .add("Label", () => <LabelScreen />)
-  .add("Text Field", () => <InputScreen />);
+  .add("Text Field", () => <InputScreen />)
+  .add("Alert", () => <AlertScreen />)
+  .add("ToolTip", () => <ToolTipScreen />)
+  .add("Cards", () => <CardScreen />);
