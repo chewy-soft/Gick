@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
   },
   scrollViewStyle: {
     height: height,
-    marginBottom: 10
+    marginBottom: 10,
+    paddingHorizontal: "10%"
   },
   scrollViewContentContainerStyle: {
     padding: 10
