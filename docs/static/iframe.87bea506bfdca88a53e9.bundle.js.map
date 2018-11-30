@@ -1,1 +1,0 @@
-{"version":3,"file":"static/iframe.87bea506bfdca88a53e9.bundle.js","sources":["webpack:///./storybook/json/data.js"],"sourcesContent":["export const ramData = Math.random().toString(36);"],"mappings":"AAAA","sourceRoot":""}
