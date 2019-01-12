@@ -1,46 +1,82 @@
 import React from "react";
-import { Text } from "react-native";
-import { getStyle } from "./styles/Card/styles";
-import ImageBackground from "../Image/ImageBackground";
-import LinearGradientView from "../View/LinearGradientView";
+import Text from "../Text/Text";
+import styles from "./styles/Card/styles";
 import View from "../View/View";
+import colors from "../../colors";
+import c from "../../lib/css";
 
-export default props => {
-  const { onPress, src, title, component, size, rowInfo } = props;
-  const styles = getStyle(size || "l");
+export default class Card extends React.Component {
+  state = { hover: false };
+  hover = () => {
+    this.setState({ hover: !this.state.hover });
+  };
+  render() {
+    const {
+      onPress,
+      title,
+      description,
+      component,
+      theme,
+      shadow,
+      header,
+      fontColor,
+      subFontColor,
+      width,
+      headerComponent,
+      componentBackColor,
+      iconCompnent
+    } = this.props;
 
-  return (
-    <View style={styles.container} onPress={onPress} elevation={3}>
-      <ImageBackground style={styles.image} src={src}>
-        {rowInfo && (
-          <LinearGradientView
-            start="#e8f5fc"
-            end="#cce9f9"
-            theme="topToBottom"
-            style={styles.users}
+    const { hover } = this.state;
+    const hover_color = hover && colors.lightBlue;
+
+    return (
+      <View
+        style={[{ width: width }, shadow && styles.shadow]}
+        onMouseOver={this.hover}
+        onMouseOut={this.hover}
+      >
+        {shadow && <View style={[styles.boxShadow, styles.left]} />}
+        {shadow && <View style={[styles.boxShadow, styles.right]} />}
+        <View onPress={onPress}>
+          {header}
+          <View style={{ ...c.absolute_full }}>{headerComponent}</View>
+        </View>
+        <View
+          style={[
+            styles.content,
+            {
+              backgroundColor:
+                (theme == "simple" && "transparent") ||
+                componentBackColor ||
+                colors.basic
+            }
+          ]}
+        >
+          <Text
+            style={[
+              styles.title,
+              { color: hover_color || fontColor || "#fff" }
+            ]}
+            numberOfLines={1}
+            onPress={onPress}
           >
-            <LinearGradientView
-              style={styles.arrow}
-              start="#e8f5fc"
-              end="#cce9f9"
-            />
-            <Text style={styles.userText}>{rowInfo}</Text>
-          </LinearGradientView>
-        )}
-        {title && (
-          <LinearGradientView
-            start="transparent"
-            end="rgba(0,0,0,.8)"
-            theme="topToBottom"
-            style={styles.name}
+            {title}
+          </Text>
+          <Text
+            style={[
+              styles.description,
+              { color: hover_color || subFontColor || "#ccc" }
+            ]}
+            numberOfLines={1}
+            onPress={onPress}
           >
-            <Text style={styles.nameText} numberOfLines={1}>
-              {title}
-            </Text>
-          </LinearGradientView>
-        )}
-      </ImageBackground>
-      {component}
-    </View>
-  );
-};
+            {description}
+          </Text>
+          {iconCompnent}
+          {component}
+        </View>
+      </View>
+    );
+  }
+}

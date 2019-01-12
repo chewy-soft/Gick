@@ -28,6 +28,7 @@ https://twitter.com/TapeHeadAi
 
 #### 2019-01-12
 * 优化ReactComponent，减少Dom的render
+* Avatar，Image，Hover，Card构造性变更
 * 简化并修正部分component错误
 
 ### License

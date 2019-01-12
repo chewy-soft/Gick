@@ -1,42 +1,20 @@
+import c from "../../../../lib/css";
 export default {
-  container: {
-    width: undefined
+  boxShadow: {
+    ...c.absolute,
+    zIndex: -2,
+    boxShadow: "0 15px 10px rgba(0, 0, 0, 0.7)",
+    bottom: 15,
+    width: "50%",
+    height: "20%"
   },
-  image: {
-    height: undefined
+  left: { left: 5, transform: [{ rotate: "-3deg" }] },
+  right: { right: 5, transform: [{ rotate: "3deg" }] },
+  title: { marginBottom: 4, fontSize: 18 },
+  description: { fontSize: 14 },
+  content: {
+    padding: 4,
+    paddingBottom: 8
   },
-  users: {
-    position: "absolute",
-    alignItems: "center",
-    flexDirection: "row",
-    top: 10,
-    left: 0,
-    paddingRight: 8,
-    paddingLeft: 4,
-    height: undefined,
-    width: "70%"
-  },
-  userText: { fontSize: undefined },
-  arrow: {
-    position: "absolute",
-    width: 22,
-    height: 22,
-    transform: [{ rotate: "45deg" }],
-    top: 4,
-    right: -10
-  },
-  name: {
-    marginTop: "auto",
-    width: "100%",
-    height: undefined,
-    justifyContent: "flex-end"
-  },
-  nameText: {
-    fontSize: undefined,
-    paddingLeft: undefined,
-    paddingVertical: undefined,
-    textAlign: "left",
-    color: "#fff"
-  },
-  infoContent: { padding: undefined, height: undefined }
+  shadow: { boxShadow: "0 2px 4px rgba(0, 0, 0, 0.6)" }
 };
