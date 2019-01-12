@@ -26,7 +26,6 @@ import ToolTipScreen from './ToolTip/ToolTipScreen';
 import CardScreen from './Card/CardScreen';
 
 export default storiesOf('Components', module)
-	.add('Simple Scroll', () => <CustomaizeScrollScreen />)
 	.add('Icons', () => <IconsScreen />)
 	.add('Default Views', () => <BasicViewScreen />)
 	.add('LinearGradient View', () => <LinearGradientViewScreen />)
