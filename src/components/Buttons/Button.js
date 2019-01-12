@@ -1,44 +1,30 @@
-import React from "react";
-import { Text } from "react-native";
-import Symbol from "../Symbol";
-import View from "../View/View";
-import { getStyles, getParams } from "./styles/Button/styles";
-import { getColors } from "./styles/Button/styles.default";
-import HoverView from "../View/HoverView";
+import React from 'react';
+import Text from '../Text/Text';
+import Symbol from '../Symbol';
+import View from '../View/View';
+import { getStyles, getParams } from './styles/Button/styles';
+import HoverView from '../View/HoverView';
 
-export default props => {
-  const {
-    theme,
-    onPress,
-    content,
-    disabled,
-    icon,
-    size,
-    iconColor,
-    style
-  } = props;
-  const defaultTheme = disabled ? "disabledTheme" : "blue";
-  const styles = getStyles(theme || defaultTheme, size || "m");
-  const params = getParams(size || "m");
-  const colors = getColors(theme || defaultTheme);
+export default (props) => {
+	const { theme, onPress, content, disabled, icon, size, iconColor } = props;
+	const defaultTheme = disabled ? 'disabledTheme' : 'blue';
+	const styles = getStyles(theme || defaultTheme, size || 'm');
+	const params = getParams(size || 'm');
 
-  return (
-    <HoverView
-      onPress={onPress}
-      disabled={disabled}
-      style={[styles.content, style]}
-      hoverColor={colors}
-    >
-      {icon && (
-        <View style={styles.icon}>
-          <Symbol
-            name={icon}
-            color={iconColor || "#fff"}
-            size={params.iconSize}
-          />
-        </View>
-      )}
-      <Text style={styles.text}>{content}</Text>
-    </HoverView>
-  );
+	return (
+		<View style={styles.content}>
+			<HoverView hoverColor={(disabled && 'disabledTheme') || theme || 'blue'}>
+				<View style={styles.inside} onPress={onPress} disabled={disabled}>
+					{icon !== undefined &&
+					icon !== null && (
+						<View style={[ styles.icon, content && styles.iconPad ]}>
+							<Symbol name={icon} color={iconColor || '#fff'} size={params.iconSize} />
+						</View>
+					)}
+					{icon === null && <View style={styles.null} />}
+					<Text style={styles.text}>{content}</Text>
+				</View>
+			</HoverView>
+		</View>
+	);
 };

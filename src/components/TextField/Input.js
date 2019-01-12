@@ -1,7 +1,12 @@
 import React from "react";
-import LabelInput from "./parts/LabelInput";
-import { Text, StyleSheet } from "react-native";
+import SimpleInput from "./parts/SimpleInput";
+import AreaInput from "./parts/AreaInput";
+import AutoExpandingInput from "./parts/AutoExpandingInput";
+import RangeInput from "./parts/RangInput";
+import Text from "../Text/Text";
+import { StyleSheet } from "react-native";
 import View from "../View/View";
+import c from "../../lib/css";
 
 const styles = StyleSheet.create({
   middle: {
@@ -11,7 +16,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   minmax: {
-    flexDirection: "row",
+    ...c.flex_row,
     alignItems: "flex-end",
     width: "100%"
   },
@@ -53,7 +58,6 @@ class Input extends React.Component {
     const {
       type,
       placeholder,
-      label,
       numberOfLines,
       theme,
       autoFocus,
@@ -67,8 +71,7 @@ class Input extends React.Component {
         return (
           <View style={styles.minmax}>
             <View style={styles.minmaxInput}>
-              <LabelInput
-                label={label}
+              <SimpleInput
                 placeholder={placeholder}
                 theme={theme}
                 type="number"
@@ -81,8 +84,7 @@ class Input extends React.Component {
             </View>
             <Text style={styles.middle}>-</Text>
             <View style={styles.minmaxInput}>
-              <LabelInput
-                label={" "}
+              <SimpleInput
                 type="number"
                 placeholder={placeholder}
                 theme={theme}
@@ -94,19 +96,16 @@ class Input extends React.Component {
             </View>
           </View>
         );
-      case "number":
       case "text":
-      case "string":
+        return <AreaInput {...this.props} />;
       case "autoExpanding":
+        return <AutoExpandingInput {...this.props} />;
+      case "range":
+        return <RangeInput {...this.props} />;
+      case "number":
+      case "string":
       default:
-        return (
-          <LabelInput
-            {...this.props}
-            onChange={this.onChange}
-            defaultValue={this.value}
-            onRef={onRef}
-          />
-        );
+        return <SimpleInput {...this.props} />;
     }
   }
 }

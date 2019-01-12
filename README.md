@@ -26,5 +26,9 @@ https://twitter.com/TapeHeadAi
 
 ![](http://image.chewy-soft.cn/46.jpg)
 
+#### 2019-01-12
+* 优化ReactComponent，减少Dom的render
+* 简化并修正部分component错误
+
 ### License
 [Chewy Soft](http://www.chewy-soft.cn/)

@@ -9,7 +9,6 @@ import PropTheme from "./examples/PropTheme";
 import PropHalfTheme from "./examples/PropHalfTheme";
 import PropSize from "./examples/PropSize";
 import OrderButton from "../../../src/components/Buttons/OrderButton";
-import MoreButton from "../../../src/components/Buttons/MoreButton";
 import Button from "../../../src/components/Buttons/Button";
 
 export default props => (
@@ -66,15 +65,6 @@ export default props => (
           <OrderButton order="up" />
           <Code>{'<OrderButton order="down" />'}</Code>
           <OrderButton order="down" />
-        </View>
-      }
-    />
-    <Description info="More Button" />
-    <ExampleDark
-      example={
-        <View>
-          <Code>{"<MoreButton />"}</Code>
-          <MoreButton />
         </View>
       }
     />

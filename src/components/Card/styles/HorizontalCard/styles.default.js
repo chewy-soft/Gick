@@ -1,14 +1,16 @@
 import colors from "../../../../colors";
+import c from "../../../../lib/css";
 export default {
   container: {
     height: 87,
-    overflow: "hidden"
+    overflow: "hidden",
+    backgroundColor: "#171717"
   },
   gameCard: {
-    flexDirection: "row",
-    backgroundColor: "#171717",
+    ...c.flex_row,
     position: "relative",
-    flex: 1
+    flex: 1,
+    height: '100%'
   },
   cardCell: {
     minWidth: 306,
@@ -16,13 +18,13 @@ export default {
     maxWidth: 390
   },
   leftContainer: {
-    alignItems: "center",
-    justifyContent: "center",
+    ...c.flex_center,
     width: 128
   },
   rightContainer: {
     flex: 1,
     padding: 4,
+    height: '100%',
     overflow: "hidden",
     justifyContent: "space-between"
   },
@@ -30,7 +32,7 @@ export default {
   title: { fontSize: 15, color: "#ccc" },
   subTitle: { fontSize: 12, color: "#767676" },
   standLine: {
-    position: "absolute",
+    ...c.absolute,
     backgroundColor: colors.background,
     height: 70,
     width: 1,
@@ -38,7 +40,7 @@ export default {
     alignSelf: "center"
   },
   line: {
-    position: "absolute",
+    ...c.absolute,
     backgroundColor: colors.background,
     height: 1,
     width: "90%",
@@ -46,7 +48,7 @@ export default {
     alignSelf: "center"
   },
   more: {
-    position: "absolute",
+    ...c.absolute,
     width: 28,
     height: 30,
     right: 0,
@@ -54,26 +56,20 @@ export default {
   },
   menus: {
     width: 85,
-    justifyContent: "center",
-    alignItems: "center"
+    ...c.flex_center,
   },
   menu: {
-    position: "absolute",
-    flexDirection: "row",
+    ...c.absolute_full,
+    ...c.flex_row,
     justifyContent: "flex-end",
     backgroundColor: "rgba(0,0,0,.4)",
-    right: 0,
-    left: 0,
-    top: 0,
-    bottom: 0,
     overflow: "hidden"
   },
   close: {
     backgroundColor: colors.darkBlue,
     height: "100%",
     width: 25,
-    alignItems: "center",
-    justifyContent: "center"
+    ...c.flex_center,
   },
   menuLabel: { color: "#fff", fontSize: 12 }
 };

@@ -12,7 +12,7 @@ export default props => (
       userBadge="reviewer"
     />
     <DividerHorizontal />
-    <Avatar size="l" online="online" userBadge="curator" />
+    <Avatar size="l" online="online" userBadge="curator"  name='nana' />
     <DividerHorizontal />
     <Avatar svg="apologize" size="l" />
     <DividerHorizontal />

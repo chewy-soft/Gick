@@ -22,7 +22,6 @@ export default props => (
     <Avatar
       size="l"
       src="http://image.boardgamereview.cn/5a6807b87948e4715f52f157?imageView2/1/w/50/h/50/format/jpg/q/100"
-      online="unknown"
     />
   </View>
 );
