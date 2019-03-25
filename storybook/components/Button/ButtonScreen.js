@@ -6,10 +6,9 @@ import { Example, ExampleDark } from '../../sampleUI/Example';
 import Code from '../../sampleUI/Code';
 import Description from '../../sampleUI/Description';
 import { DividerHorizontal, DividerVertical } from '../../sampleUI/helps';
-import PropSize from './examples/PropSize';
 import OrderButton from '../../../src/components/Buttons/OrderButton';
 import Button from '../../../src/components/Buttons/Button';
-import { themes } from '../../../src/components/Buttons/styles/Button/styles.default';
+import { themes, sizes } from '../../../src/components/Buttons/styles/Button/styles.default';
 import _ from 'lodash';
 
 export default (props) => (
@@ -25,14 +24,15 @@ export default (props) => (
 				</View>
 			))}
 		/>
-		<Description info="Button Size S" />
+		<Description info="Button Sizes" />
 		<Example
-			example={
-				<View>
-					<Code>{"<Button theme='darkBlue' content='...' onPress='...' />"}</Code>
-					<PropSize />
+			example={_.map(sizes, (i, index) => (
+				<View key={index}>
+					<Code>{`<Button theme='darkBlue' size='${index}' content='...' onPress='...' />`}</Code>
+					<Button icon="good" size={index} theme="darkBlue" content="好评" />
+					<DividerHorizontal />
 				</View>
-			}
+			))}
 		/>
 		<Description info="Button disabled,Boolean。" />
 		<ExampleDark
