@@ -1,7 +1,7 @@
 import React from "react";
 import { TextInput, View } from "react-native";
 import styles from "./AreaInput/styles";
-import Symbol from "../../Symbol";
+import Label from "../../Label";
 
 class AreaInput extends React.Component {
   constructor(props) {
@@ -15,6 +15,12 @@ class AreaInput extends React.Component {
   setFocus(bool) {
     this.setState({ focus: bool });
   }
+  clear = () => {
+    this.setState({ value: "" });
+  };
+  set = value => {
+    this.setState({ value: value });
+  };
   onChange(value) {
     this.props.onChange && this.props.onChange(value);
     this.setState({ value: value });
@@ -23,6 +29,7 @@ class AreaInput extends React.Component {
     if (this.props.value) {
       this.setState({ value: this.props.value });
     }
+    if (this.props.onRef) this.props.onRef(this);
   }
   componentWillUpdate(nextProps) {
     if (this.props.value !== nextProps.value) {
@@ -36,30 +43,36 @@ class AreaInput extends React.Component {
       onKeyPress,
       autoFocus,
       maxLength,
-      onRef,
-      theme
+      theme,
+      disabled
     } = this.props;
     let placeholderTextColor;
     let css_textarea;
-    let iconColor;
     switch (theme) {
       case "light":
         placeholderTextColor = "rgba(0,0,0,.4)";
         css_textarea = [styles.textareaContent, styles.light];
-        iconColor = "rgba(0,0,0,.4)";
         break;
       case "dark":
       default:
         placeholderTextColor = "rgba(255,255,255,.2)";
-        css_textarea = styles.textareaContent;
-        iconColor = "#fff";
+        css_textarea = [
+          styles.textareaContent,
+          { borderColor: (this.state.focus && "#fff") || "#aaa" }
+        ];
         break;
     }
     return (
-      <View style={styles.contianer}>
-        <View style={styles.before}>
-          <Symbol name="quoteOpen" color={iconColor} />
-        </View>
+      <View>
+        {maxLength && (
+          <View style={{ marginLeft: "auto", marginBottom: 4, marginRight: 2 }}>
+            <Label
+              theme="blue"
+              content={`${_.size(this.state.value)}/${maxLength}`}
+              size="m"
+            />
+          </View>
+        )}
         <TextInput
           style={css_textarea}
           onFocus={() => this.setFocus(true)}
@@ -73,13 +86,10 @@ class AreaInput extends React.Component {
           underlineColorAndroid="transparent"
           value={this.state.value}
           maxLength={maxLength}
-          ref={onRef}
           placeholderTextColor={placeholderTextColor}
           selectionColor="#fff"
+          disabled={disabled}
         />
-        <View style={styles.after}>
-          <Symbol name="quoteClose" color={iconColor} />
-        </View>
       </View>
     );
   }

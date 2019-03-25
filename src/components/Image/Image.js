@@ -46,6 +46,7 @@ export default class Image extends React.Component {
 	componentDidUpdate(preProps, preState) {
 		if (this.props.src !== preProps.src) {
 			this.resize();
+			this.handleError({ nativeEvent: null });
 		}
 		if (this.state.width !== preState.width || this.state.height !== preState.height) {
 			this.props.onResize && this.props.onResize();
@@ -94,10 +95,11 @@ export default class Image extends React.Component {
 		const { width, height, sourceKey, loading, error } = this.state;
 		const styles = getStyles(size || 'middle');
 		const params = getParams(size || 'middle');
+		const resize = resizeMode || (type == 'background' && 'cover') || 'contain';
 
 		let css_image;
 		if (size == 'auto') {
-			css_image = { width: width, height: height };
+			css_image = { width: width || 50, height: height || 50 };
 		} else {
 			css_image = styles.image;
 		}
@@ -113,54 +115,48 @@ export default class Image extends React.Component {
 		if (error) {
 			return (
 				<View style={[ styles.image, styles.error, style ]}>
-					<Symbol name="brokenImage" size={params.svg} />
+					<View style={{ opacity: 0.2 }}>
+						{type == 'background' && <Symbol name="brokenImage" size={20} />}
+						{type !== 'background' && <Symbol name="brokenImage" size={params.error} />}
+					</View>
 					{children}
 				</View>
 			);
 		}
 		if (_.isNil(src)) {
-			return (
-				<View style={[ styles.background, style ]}>
-					<View style={[ styles.monster, styles.leftTop ]}>
-						<Symbol name="monsterFont" size={params.leftTop} />
-					</View>
-					<View style={[ styles.monster, styles.leftBottom ]}>
-						<Symbol name="monsterFont" size={params.bottom} />
-					</View>
-					<View style={[ styles.monster, styles.top ]}>
-						<Symbol name="monsterFont" size={params.top} />
-					</View>
-					<View style={[ styles.monster, styles.rightTop ]}>
-						<Symbol name="monsterFont" size={params.top} />
-					</View>
-					<View style={[ styles.monster, styles.rightBottom ]}>
-						<Symbol name="monsterFont" size={params.bottom} />
-					</View>
-					{children}
-				</View>
-			);
+			return <View style={[ styles.background, style ]}>{children}</View>;
 		}
 		if (!error) {
 			return (
-				<View style={[ styles.container, style ]} onPress={onPress}>
+				<View style={[ styles.container, style ]} onPress={onPress} activeOpacity={1}>
 					{loading && _loader}
-					<BasicImage
-						resizeMode={resizeMode || (type == 'background' && 'cover') || 'contain'}
-						key={sourceKey}
-						source={{ uri: src }}
-						style={[
-							blur && styles.backgroundBlur,
-							css_image,
-							type == 'background' && styles.background,
-							{ opacity: opacity || 1 },
-							blur && type == 'background' && { width: '110%' }
-						]}
-						blurRadius={blur || 0}
-						onLoadStart={this.handleLoadStart}
-						onLoad={this.handleLoad}
-						onLoadEnd={this.handleLoadEnd}
-						onError={this.handleError}
-					/>
+					{type == 'webHeader' && (
+						<img
+							src={src}
+							alt="Gick Image"
+							style={{ width: '100%', height: 'auto' }}
+							onError={this.handleError}
+						/>
+					)}
+					{type !== 'webHeader' && (
+						<BasicImage
+							resizeMode={resize}
+							key={sourceKey}
+							source={{ uri: src }}
+							style={[
+								blur && styles.backgroundBlur,
+								css_image,
+								type == 'background' && styles.background,
+								{ opacity: opacity || 1 },
+								blur && type == 'background' && { width: '110%' }
+							]}
+							blurRadius={blur || 0}
+							onLoadStart={this.handleLoadStart}
+							onLoad={this.handleLoad}
+							onLoadEnd={this.handleLoadEnd}
+							onError={this.handleError}
+						/>
+					)}
 					{children}
 				</View>
 			);

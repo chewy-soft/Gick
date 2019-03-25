@@ -6,7 +6,8 @@ const sizes = {
 	small: { image: { width: 68, height: 68 } },
 	middle: { image: { width: 155, height: 155 } },
 	tiny: { image: { width: 50, height: 50 } },
-	card_small: { image: { width: 128, height: 85 } }
+	card_small: { image: { width: 128, height: 85 } },
+	auto: { image: {} }
 };
 
 export const getStyles = (size) => {
@@ -32,36 +33,6 @@ export const getStyles = (size) => {
 			alignItems: 'center',
 			backgroundColor: 'rgba(0,0,0,.2)'
 		},
-		back: { ...c.absolute_full },
-		monster: {
-			...c.absolute,
-			opacity: 0.4
-		},
-		leftTop: {
-			top: -2,
-			left: -16,
-			transform: [ { rotate: '10deg' } ]
-		},
-		leftBottom: {
-			bottom: -16,
-			left: 21,
-			transform: [ { rotate: '-15deg' } ]
-		},
-		rightTop: {
-			bottom: 0,
-			right: 32,
-			transform: [ { rotate: '-10deg' } ]
-		},
-		rightBottom: {
-			top: 18,
-			right: 3,
-			transform: [ { rotate: '-80deg' } ]
-		},
-		top: {
-			left: 120,
-			top: -10,
-			transform: [ { rotate: '180deg' } ]
-		}
 	};
 	styles = _.merge(styles, sizes[size]);
 	return StyleSheet.create(styles);

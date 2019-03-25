@@ -5,7 +5,6 @@ import Description from "../../sampleUI/Description";
 import PageContainer from "../../sampleUI/PageContainer";
 import Input from "../../../src/components/TextField/Input";
 import SimpleInput from "../../../src/components/TextField/parts/SimpleInput";
-import LabelInput from "../../../src/components/TextField/parts/LabelInput";
 import Code from "../../sampleUI/Code";
 import { View } from "react-native";
 
@@ -38,12 +37,12 @@ export default props => (
       }
     />
 
-    <Description info="Label Input Component (DONT USE THIS COMPONENT DIRECTORY) " />
+    <Description info="Input Component (DONT USE THIS COMPONENT DIRECTORY) " />
     <ExampleDark
       example={
         <View>
-          <Code>{"<LabelInput label='test label' />"}</Code>
-          <LabelInput label="test label" />
+          <Code>{"<Input label='test label' />"}</Code>
+          <Input label="test label" />
         </View>
       }
     />
@@ -51,7 +50,7 @@ export default props => (
       example={
         <View>
           <Code>{"<LabelInput theme='light' label='test label' />"}</Code>
-          <LabelInput theme="light" label="test label" />
+          <Input theme="light" label="test label" />
         </View>
       }
     />

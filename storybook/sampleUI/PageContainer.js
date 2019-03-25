@@ -22,9 +22,9 @@ export default props => (
     <ScrollView
       contentContainerStyle={styles.scrollViewContentContainerStyle}
       keyboardDismissMode="on-drag"
-      ref={scrollview => {
-        this.scrollview = scrollview;
-      }}
+      // ref={scrollview => {
+      //   this.scrollview = scrollview;
+      // }}
       style={styles.scrollViewStyle}
     >
       {props.children}

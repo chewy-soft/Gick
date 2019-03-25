@@ -1,6 +1,6 @@
 import React from "react";
 import colors from "../../colors";
-import { Text, StyleSheet, Platform, Animated } from "react-native";
+import Text from "../Text/Text"; import { StyleSheet, Platform, Animated } from "react-native";
 
 const defaultProps = {
   fadeIn: 0,

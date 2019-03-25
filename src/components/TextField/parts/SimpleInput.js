@@ -1,6 +1,9 @@
 import React from "react";
 import { StyleSheet, TextInput } from "react-native";
 import styles from "./SimpleInput/styles";
+import View from "../../View/View";
+import Label from "../../Label";
+import _ from "lodash";
 
 class SimpleInput extends React.Component {
   constructor(props) {
@@ -12,13 +15,20 @@ class SimpleInput extends React.Component {
       props.type,
       defaultValue
     );
-    this.state = { focus: false, viewValue: viewValue, modelValue: modelValue };
+    this.state = {
+      focus: false,
+      viewValue: viewValue,
+      modelValue: modelValue
+    };
   }
   componentDidMount() {
     if (this.props.onRef) this.props.onRef(this);
   }
   clear = () => {
     this.setState({ viewValue: "", modelValue: undefined });
+  };
+  set = value => {
+    this.setState({ viewValue: value, modelValue: value });
   };
   setFocus = bool => {
     this.setState({ focus: bool });
@@ -62,11 +72,6 @@ class SimpleInput extends React.Component {
   };
   onKeyPress = e => {
     this.props.onKeyPress && this.props.onKeyPress(e);
-    if (e.key === "Enter") {
-      e.preventDefault();
-      e.stopPropagation();
-      this.props.onCommit && this.props.onCommit();
-    }
   };
   render() {
     let {
@@ -77,7 +82,8 @@ class SimpleInput extends React.Component {
       maxLength,
       editable,
       onRef,
-      fontSize
+      fontSize,
+      placeholderTextColor
     } = this.props;
     let keyboardType = "default";
     switch (type) {
@@ -87,7 +93,10 @@ class SimpleInput extends React.Component {
         keyboardType = "numeric";
         break;
     }
-    const themes = [styles.input, { fontSize: fontSize || 14 }];
+    const themes = [
+      styles.input,
+      { fontSize: fontSize || 14, paddingRight: maxLength && 62 }
+    ];
     let underlineColorAndroid;
     switch (theme) {
       case "search":
@@ -113,23 +122,38 @@ class SimpleInput extends React.Component {
         break;
     }
     return (
-      <TextInput
-        autoCorrect={false}
-        style={StyleSheet.flatten(themes)}
-        onFocus={() => this.setFocus(true)}
-        onBlur={() => this.setFocus(false)}
-        autoFocus={autoFocus}
-        onKeyPress={this.onKeyPress}
-        onChangeText={this.onChange}
-        keyboardType={keyboardType}
-        placeholder={placeholder}
-        placeholderTextColor={(this.state.focus && "transparent") || "#aaa"}
-        value={this.state.viewValue}
-        underlineColorAndroid={underlineColorAndroid}
-        enablesReturnKeyAutomatically
-        maxLength={maxLength}
-        editable={editable}
-      />
+      <View>
+        <TextInput
+          autoCorrect={false}
+          style={StyleSheet.flatten(themes)}
+          onFocus={() => this.setFocus(true)}
+          onBlur={() => this.setFocus(false)}
+          autoFocus={autoFocus}
+          onKeyPress={this.onKeyPress}
+          onChangeText={this.onChange}
+          keyboardType={keyboardType}
+          placeholder={placeholder}
+          placeholderTextColor={
+            (this.state.focus && "transparent") ||
+            placeholderTextColor ||
+            "#aaa"
+          }
+          value={this.state.viewValue}
+          underlineColorAndroid={underlineColorAndroid}
+          enablesReturnKeyAutomatically
+          maxLength={maxLength}
+          editable={editable}
+        />
+        {maxLength && (
+          <View style={{ position: "absolute", right: 4, bottom: 5 }}>
+            <Label
+              theme="blue"
+              content={`${_.size(this.state.viewValue)}/${maxLength}`}
+              size="m"
+            />
+          </View>
+        )}
+      </View>
     );
   }
 }

@@ -2,7 +2,7 @@ import React from "react";
 import Button from "./Button";
 
 export default props => {
-  const { order } = props;
+  const { order, defaultValue } = props;
   if (order == "up")
     return (
       <Button
@@ -28,7 +28,7 @@ export default props => {
       <Button
         size="s"
         theme="darkBlue"
-        content="综合排序"
+        content={defaultValue || "综合排序"}
         icon="sort"
         onPress={props.onPress}
       />

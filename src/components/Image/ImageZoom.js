@@ -11,7 +11,13 @@ const styles = StyleSheet.create({
 		...css.absolute_full,
 		...css.flex_center
 	},
-	image: { width: '100%', height: '100%', maxHeight: 800, maxWidth: 1024, flex: 1 },
+	image: {
+		width: '100%',
+		height: '100%',
+		maxHeight: process.env.RESOLUTION == 'mobile' ? '100%' : 800,
+		flex: 1,
+		maxWidth: '100%'
+	},
 	orignal: { ...css.absolute, bottom: 12, right: 12, zIndex: 10 }
 });
 
@@ -19,8 +25,16 @@ export default (props) => {
 	const { src, onClose, original } = props;
 	return (
 		<View style={styles.content}>
-			<View style={styles.content} onPress={onClose} />
-			<Image src={src} size="auto" style={styles.image} resizeMode="contain" onPress={onClose} />
+			<View style={styles.content} onPress={onClose} activeOpacity={1} />
+			<Image
+				src={src}
+				size="auto"
+				style={styles.image}
+				resizeMode="contain"
+				onPress={onClose}
+				type={process.env.RESOLUTION == 'mobile' && 'background'}
+			/>
+			{props.sub}
 			<View style={styles.orignal}>
 				<ExternalLinkView url={original}>
 					<Symbol name="zoom" />

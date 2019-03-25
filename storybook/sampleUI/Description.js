@@ -6,7 +6,8 @@ const styles = StyleSheet.create({
     marginTop: 16
   },
   text: {
-    fontSize: 16
+    fontSize: 16,
+    color: '#fff'
   }
 });
 

@@ -1,23 +1,28 @@
 import React from "react";
-import { Text } from "react-native";
+import Text from "../Text/Text";
+import Code from "../Code/Code";
 
 const SimpleFormat = props => {
-  const { simple_format, simple_value } = props;
+  const { simple_format, simple_value, onResize } = props;
+  if (simple_format == "number") {
+    if (simple_value >= 10000) {
+      return <Text>{Number(simple_value / 10000).toFixed(1)}万</Text>;
+    } else {
+      return String(simple_value).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+  }
   if (simple_format == "counter") {
     return (
-      <Text>
-        {(simple_value > 9 && parseInt(simple_value)) ||
-          "0" + parseInt(simple_value)}
-      </Text>
+      (simple_value > 9 && parseInt(simple_value)) ||
+      "0" + parseInt(simple_value)
     );
   } else {
     return (
       <Text>
-        {simple_format == "number" &&
-          String(simple_value).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         {simple_format == "integer" && parseInt(simple_value)}
         {simple_format == "float" && Number(simple_value).toFixed(2)}
         {simple_format == "string" && simple_value}
+        {simple_format == "code" && <Code value={simple_value} onResize={onResize} />}
         {simple_format == "text" && simple_value}
         {simple_format == "percent" && parseInt(simple_value * 100)}
         {simple_format == "price" && Number(simple_value).toFixed(2)}
@@ -34,7 +39,8 @@ class Format extends React.Component {
       format,
       style,
       numberOfLines,
-      selectable
+      selectable,
+      onResize
     } = this.props;
     if (value === undefined || value === null) return <Text />;
     let simple_format;
@@ -82,6 +88,9 @@ class Format extends React.Component {
       case "counter":
         simple_format = "counter";
         break;
+      case "code":
+        simple_format = "code";
+        break;
       case "string":
       default:
         simple_format = "string";
@@ -95,6 +104,7 @@ class Format extends React.Component {
             <SimpleFormat
               simple_format={simple_format}
               simple_value={value.min || value.max}
+              onResize={onResize}
             />
             {suffix}
           </Text>
@@ -105,11 +115,13 @@ class Format extends React.Component {
             <SimpleFormat
               simple_format={simple_format}
               simple_value={value.min}
+              onResize={onResize}
             />{" "}
             -{" "}
             <SimpleFormat
               simple_format={simple_format}
               simple_value={value.max}
+              onResize={onResize}
             />
             {suffix}
           </Text>
@@ -118,7 +130,7 @@ class Format extends React.Component {
     }
     return (
       <Text style={style} numberOfLines={numberOfLines} selectable={selectable}>
-        <SimpleFormat simple_format={simple_format} simple_value={value} />
+        <SimpleFormat simple_format={simple_format} simple_value={value} onResize={onResize} />
         {suffix}
       </Text>
     );

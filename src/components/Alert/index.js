@@ -2,7 +2,7 @@ import React from "react";
 import Symbol from "../Symbol";
 import styles from "./styles";
 import FadeView from "../View/FadeView";
-import { Text, StyleSheet } from "react-native";
+import Text from "../Text/Text"; import { StyleSheet } from "react-native";
 
 export default props => {
   const { type, hideAfter, message, visible } = props;

@@ -1,13 +1,13 @@
 import colors from "../../colors";
+import c from "../../lib/css";
 export default {
   container: {
-    flexDirection: "row",
+    ...c.flex_row_center,
     backgroundColor: colors.background,
     minHeight: undefined,
     borderRadius: 6,
     borderWidth: 2,
-    paddingHorizontal: 12,
-    alignItems: "center"
+    paddingHorizontal: 12
   },
   error: {
     borderColor: colors.error

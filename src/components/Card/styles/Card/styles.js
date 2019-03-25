@@ -4,4 +4,19 @@ import _ from "lodash";
 
 const diff = {};
 
-export default StyleSheet.create(_.merge(defaultStyle, diff));
+const sizes = {
+	l: {
+		title: { fontSize: 18 },
+		description: { fontSize: 14 }
+	},
+	m: {
+		title: { fontSize: 14 },
+		description: { fontSize: 12 }
+	}
+};
+
+export default (getStyles = (size) => {
+	let styles = {};
+	styles = _.merge(styles, defaultStyle, diff, sizes[size]);
+	return StyleSheet.create(styles);
+});

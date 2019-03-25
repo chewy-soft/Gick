@@ -1,25 +1,19 @@
-import React from "react";
-import { Text } from "react-native";
-import Svg from "./parts/Svg";
-import Icon from "./parts/Icon";
-import mapping from "./mappings";
+import React from 'react';
+import Svg from './Svg';
+import mapping from './mappings';
+import MateIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export default props => {
-  const { name } = props;
-  if (mapping[name]) {
-    return (
-      <Text style={{ textAlignVertical: "middle" }}>
-        <Icon
-          icon={(name !== undefined && mapping[name]) || "link"}
-          {...props}
-        />
-      </Text>
-    );
-  }
+export default (props) => {
+	const { name, size, color } = props;
+	if (mapping[name]) {
+		return (
+			<MateIcon
+				name={(name !== undefined && mapping[name]) || 'link'}
+				size={size || 30}
+				color={color || '#fff'}
+			/>
+		);
+	}
 
-  return (
-    <Text style={{ textAlignVertical: "middle" }}>
-      <Svg svg={(name !== undefined && name) || "monster"} {...props} />
-    </Text>
-  );
+	return <Svg svg={(name !== undefined && name) || 'monster'} {...props} />;
 };

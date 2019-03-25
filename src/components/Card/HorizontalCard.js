@@ -7,6 +7,7 @@ import LinearGradientView from '../View/LinearGradientView';
 import colors from '../../colors';
 import Symbol from '../Symbol';
 import HoverView from '../View/HoverView';
+import { images } from '../../lib/bucket';
 
 class HorizontalCard extends React.Component {
 	state = { menu: false };
@@ -25,7 +26,7 @@ class HorizontalCard extends React.Component {
 		if (_.isNil(src)) {
 			_src = 'http://svg-support.boardgamereview.cn/choseHeader_128.png';
 		} else {
-			_src = src;
+			_src = (theme == 'stretch' && images(src)['128x85']) || images(src)['128x85_min'];
 		}
 
 		const { menu } = this.state;
@@ -34,13 +35,13 @@ class HorizontalCard extends React.Component {
 		return (
 			<View style={styles.container} onPress={onPress_type}>
 				<View style={styles.gameCard}>
-					<HoverView hoverColor="gray" onPress={onPress_type} theme="horizontalCard">
+					<HoverView hoverColor="gray" theme="horizontalCard">
 						<View style={styles.leftContainer}>
 							<Image
 								src={_src}
 								type={(theme == 'cover' && 'background') || 'image'}
 								size={'card_small'}
-								style={{ width: 128, height: 85 }}
+								style={styles.headerImage}
 							/>
 						</View>
 						<View style={styles.rightContainer}>

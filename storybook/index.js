@@ -6,6 +6,7 @@ import "./rn-addons";
 configure(() => {
   require("../storybook/welcome");
   require("../storybook/components");
+  require("../storybook/contianers");
 }, module);
 
 // Refer to https://github.com/storybooks/storybook/tree/master/app/react-native#start-command-parameters

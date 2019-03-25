@@ -1,20 +1,18 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  contianer: {
-    marginTop: 8,
-    flex: 1
-  },
   textareaContent: {
-    outline: "none",
     flex: 1,
     color: "#fff",
-    lineHeight: "30px",
+    lineHeight: "20px",
     padding: "0 10px",
-    borderColor: "transparent",
     boxSizing: "border-box",
-    resize: "none"
+    borderColor: "#aaa",
+    borderWidth: 1,
+    resize: "none",
+    borderRadius: 6,
+    outline: "none",
+    padding: 4
   },
-  light: { color: "rgb(43,43,43)" },
-  after: { marginLeft: "auto" }
+  light: { color: "rgb(43,43,43)",backgroundColor: '#fff' }
 });

@@ -7,8 +7,6 @@ import FadeViewScreen from './View/FadeViewScreen';
 import InfinateScrollViewScreen from './View/InfinateScrollViewScreen';
 import ButtonScreen from './Button/ButtonScreen';
 import RoundButtonScreen from './Button/RoundButtonScreen';
-import FlatButtonScreen from './Button/FlatButtonScreen';
-import FlatTabScreen from './Button/FlatTabScreen';
 import AvatarScreen from './Avatar/AvatarScreen';
 import FormatScreen from './Text/FormatScreen';
 import ImageScreen from './Image/ImageScreen';
@@ -24,6 +22,7 @@ import InputScreen from './TextField/InputScreen';
 import AlertScreen from './Alert/AlertScreen';
 import ToolTipScreen from './ToolTip/ToolTipScreen';
 import CardScreen from './Card/CardScreen';
+import LunchScreen from './Loader/LunchScreen';
 
 export default storiesOf('Components', module)
 	.add('Icons', () => <IconsScreen />)
@@ -33,8 +32,6 @@ export default storiesOf('Components', module)
 	.add('Infinate Scroll View', () => <InfinateScrollViewScreen />)
 	.add('Button', () => <ButtonScreen />)
 	.add('Round Button', () => <RoundButtonScreen />)
-	.add('Flat Button', () => <FlatButtonScreen />)
-	.add('Flat Tab Button', () => <FlatTabScreen />)
 	.add('Avatar', () => <AvatarScreen />)
 	.add('Format', () => <FormatScreen />)
 	.add('Image', () => <ImageScreen />)
@@ -49,4 +46,5 @@ export default storiesOf('Components', module)
 	.add('Text Field', () => <InputScreen />)
 	.add('Alert', () => <AlertScreen />)
 	.add('ToolTip', () => <ToolTipScreen />)
-	.add('Cards', () => <CardScreen />);
+	.add('Cards', () => <CardScreen />)
+	.add('LunchLoader', () => <LunchScreen />);

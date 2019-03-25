@@ -1,12 +1,15 @@
 import { StyleSheet } from 'react-native';
 import _ from 'lodash';
 import c from '../../../../lib/css';
+import colors from '../../../../colors';
 
 const sizes = {
 	small: { image: { width: 78, height: 78 } },
 	middle: { image: { width: 270, height: 280 } },
+	medium: { image: { width: 155, height: 155 } },
 	tiny: { image: { width: 50, height: 50 } },
-	card_small: { image: { width: 128, height: 85 } }
+	card_small: { image: { width: 128, height: 85 } },
+	auto: { image: { flex: 0, flexBasis: 'auto' } }
 };
 
 export const getStyles = (size) => {
@@ -36,48 +39,22 @@ export const getStyles = (size) => {
 		error: {
 			justifyContent: 'center',
 			alignItems: 'center',
-			backgroundColor: 'rgba(0,0,0,.2)'
+			backgroundColor: colors.basic,
+			width: '100%',
+			height: '100%'
 		},
-		monster: {
-			...c.absolute,
-			opacity: 0.4
-		},
-		leftTop: {
-			top: -2,
-			left: -16,
-			transform: [ { rotate: '10deg' } ]
-		},
-		leftBottom: {
-			bottom: -16,
-			left: 21,
-			transform: [ { rotate: '-15deg' } ]
-		},
-		rightTop: {
-			bottom: 0,
-			right: 32,
-			transform: [ { rotate: '-10deg' } ]
-		},
-		rightBottom: {
-			top: 18,
-			right: 3,
-			transform: [ { rotate: '-80deg' } ]
-		},
-		top: {
-			left: 120,
-			top: -10,
-			transform: [ { rotate: '180deg' } ]
-		}
 	};
 	styles = _.merge(styles, sizes[size]);
 	return StyleSheet.create(styles);
 };
 
 const params = {
-	middle: { svg: 250, leftTop: 96, bottom: 64, top: 76 },
-	small: { svg: 78, leftTop: 96, bottom: 64, top: 76 },
-	tiny: { svg: 50, leftTop: 96, bottom: 64, top: 76 },
-	card_small: { svg: 60, leftTop: 96, bottom: 64, top: 76 },
-	auto: { svg: 90, leftTop: 96, bottom: 64, top: 76 }
+	middle: { error: 118, leftTop: 96, bottom: 64, top: 76 },
+	medium: { error: 90, leftTop: 96, bottom: 64, top: 76 },
+	small: { error: 30, leftTop: 96, bottom: 64, top: 76 },
+	tiny: { error: 25, leftTop: 96, bottom: 64, top: 76 },
+	card_small: { error: 50, leftTop: 96, bottom: 64, top: 76 },
+	auto: { error: 50, leftTop: 96, bottom: 64, top: 76 }
 };
 
 export const getParams = (size) => {

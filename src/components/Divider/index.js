@@ -2,12 +2,12 @@ import React from "react";
 import { StyleSheet, Text } from "react-native";
 import View from "../View/View";
 import _ from "lodash";
+import c from "../../lib/css";
 
 const _styles = {
   container: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    ...c.flex_row,
+    ...c.flex_center,
     height: 16,
     flex: 1
   },
@@ -18,8 +18,7 @@ const _styles = {
     backgroundColor: undefined
   },
   date: {
-    justifyContent: "center",
-    alignItems: "center",
+    ...c.flex_center,
     paddingHorizontal: 6,
     color: undefined,
     fontSize: 12
@@ -32,6 +31,12 @@ const types = {
     date: { color: "#DCBC19", fontSize: 14 }
   },
   light: { divider: { backgroundColor: "#aaa" }, date: { color: "#aaa" } },
+  transparent: {
+    divider: {
+      backgroundColor: "transparent"
+    },
+    date: { color: "#aaa" }
+  },
   dark: {
     divider: { backgroundColor: "rgba(255,255,255,.8)" },
     date: { color: "rgba(255,255,255,.8)" }

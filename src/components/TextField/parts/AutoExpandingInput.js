@@ -45,7 +45,6 @@ class AutoExpandingInput extends React.Component {
         multiline={true}
         underlineColorAndroid={"transparent"}
         autoFocus={autoFocus}
-        // onKeyPress={this.onKeyPress}
         placeholder={placeholder}
         multiline={true}
         ref={onRef}
@@ -57,7 +56,6 @@ class AutoExpandingInput extends React.Component {
         onChange={this.onChange}
         onChangeText={this.onChange}
         onContentSizeChange={this.onContentSizeChange}
-        // dataDetectorTypes="link"
       />
     );
   }

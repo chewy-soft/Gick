@@ -24,3 +24,12 @@ story.pub
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/src/contianers
+/src/pages
+/src/config
+/src/context
+/src/elasticsearch
+/src/lib
+/storybook/contianers
+/storybook/pages

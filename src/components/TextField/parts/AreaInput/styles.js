@@ -1,21 +1,15 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  contianer: {
-    marginTop: 8,
-    height: "100%"
-  },
   textareaContent: {
     textAlignVertical: "top",
     color: "#fff",
+    borderColor: "#aaa",
+    borderWidth: 1,
     flex: 1,
     lineHeight: 30,
     paddingHorizontal: 10,
-    borderColor: "transparent",
-    zIndex: 1
+    borderRadius: 4
   },
-  light: { color: "rgb(43,43,43)" },
-  after: {
-    marginStart: "auto"
-  }
+  light: { color: "rgb(43,43,43)",backgroundColor: '#fff' }
 });

@@ -4,6 +4,8 @@ import colors from "../../colors";
 
 export default props => {
   const { theme } = props;
+  var color;
+
   switch (theme) {
     case "blue":
       color = "#2f3136";

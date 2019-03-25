@@ -5,7 +5,6 @@ import PageContainer from "../../sampleUI/PageContainer";
 import PageTitle from "../../sampleUI/PageTitle";
 import { Example } from "../../sampleUI/Example";
 import Description from "../../sampleUI/Description";
-import FlatTabBackground from "../../../src/components/Paper/FlatTabBackground";
 import LinearGradientBackground from "../../../src/components/Paper/LinearGradientBackground";
 import BasicBacground from "../../../src/components/Paper/BasicBackground";
 import Image from "../../../src/components/Image/Image";
@@ -46,17 +45,6 @@ export default props => (
           <BasicBacground theme="black">{image}</BasicBacground>
           <Code>{`<BasicBacground theme='blue'><Image...`}</Code>
           <BasicBacground theme="blue">{image}</BasicBacground>
-        </View>
-      }
-    />
-    <Description info="Flat Tab Background." />
-    <Example
-      example={
-        <View>
-          <Code>
-            {`<FlatTabBackground><Image src="http://image..." /></FlatTabBackground>`}
-          </Code>
-          <FlatTabBackground>{image}</FlatTabBackground>
         </View>
       }
     />

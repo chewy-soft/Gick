@@ -9,6 +9,7 @@ const defaultStyles = {
 		backgroundColor: undefined,
 		overflow: 'hidden'
 	},
+	shadow: { boxShadow: '0 2px 2px 2px rgba(0,0,0,.4)' },
 	content: {
 		fontSize: 12,
 		marginTop: -3,
@@ -66,9 +67,11 @@ const themes = {
 	black: {
 		button: { backgroundColor: 'rgba(255,255,255,.1)' }
 	},
+	dark: { button: { backgroundColor: colors.background } },
 	orange: {
 		button: { backgroundColor: colors.lightOrange }
 	},
+	lightOrange: { button: { backgroundColor: colors.orange } },
 	darkBlue: {
 		button: { backgroundColor: '#68768A' }
 	},
@@ -99,6 +102,7 @@ const themes = {
 	blue: {
 		button: { backgroundColor: '#7289da' }
 	},
+	gray: { button: { backgroundColor: 'rgba(255,255,255,.1)' } },
 	transparent: {
 		button: {
 			backgroundColor: 'rgba(255,255,255,.1)'
@@ -127,7 +131,19 @@ const paramsSize = {
 	xs: { icon: 14 }
 };
 
-const themeLeng = [ 'black', 'darkBlue', 'orange', 'lightBlue', 'red', 'wechat', 'qq', 'weibo', 'white', 'moss' ];
+const themeLeng = [
+	'black',
+	'darkBlue',
+	'orange',
+	'lightOrange',
+	'lightBlue',
+	'red',
+	'wechat',
+	'qq',
+	'weibo',
+	'white',
+	'moss'
+];
 const defaultColor = (theme) => {
 	if (indexOf(themeLeng[theme]) !== 0) {
 		return { color: '#fff' };
