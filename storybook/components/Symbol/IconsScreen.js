@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import PageContainer from '../../sampleUI/PageContainer';
 import PageTitle from '../../sampleUI/PageTitle';
 import Description from '../../sampleUI/Description';
@@ -16,11 +15,11 @@ export default (props) => (
 		<Description info="use react-native-vector-icons" />
 		<ExampleDark
 			example={_.map(mapping, (m, index) => (
-				<View key={index}>
+				<React.Fragment key={index}>
 					<Code>{`<Symbol name='${index}' />`}</Code>
 					<Symbol name={index} />
 					<DividerHorizontal />
-				</View>
+				</React.Fragment>
 			))}
 		/>
 	</PageContainer>

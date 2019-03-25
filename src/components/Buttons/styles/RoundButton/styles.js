@@ -18,7 +18,7 @@ const defaultStyles = {
 	inside: { flex: 1, alignItems: 'center', justifyContent: 'center' }
 };
 
-const sizes = {
+export const sizes = {
 	xl: {
 		button: {
 			width: 79,
@@ -63,7 +63,7 @@ const sizes = {
 	}
 };
 
-const themes = {
+export const themes = {
 	black: {
 		button: { backgroundColor: 'rgba(255,255,255,.1)' }
 	},

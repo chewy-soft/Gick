@@ -17,43 +17,43 @@ export default (props) => (
 		<Description info="Button Colors" />
 		<ExampleDark
 			example={_.map(themes, (m, index) => (
-				<View key={index}>
+				<React.Fragment key={index}>
 					<Code>{`<Button theme='${index}' content='${index}' onPress='...' />`}</Code>
 					<Button theme={index} content={index} icon="qq" />
 					<DividerHorizontal />
-				</View>
+				</React.Fragment>
 			))}
 		/>
 		<Description info="Button Sizes" />
 		<Example
 			example={_.map(sizes, (i, index) => (
-				<View key={index}>
+				<React.Fragment key={index}>
 					<Code>{`<Button theme='darkBlue' size='${index}' content='...' onPress='...' />`}</Code>
 					<Button icon="good" size={index} theme="darkBlue" content="好评" />
 					<DividerHorizontal />
-				</View>
+				</React.Fragment>
 			))}
 		/>
 		<Description info="Button disabled,Boolean。" />
 		<ExampleDark
 			example={
-				<View>
+				<React.Fragment>
 					<Code>{'<Button disabled content="Disabled button" />'}</Code>
 					<Button disabled content="Disabled button" />
-				</View>
+				</React.Fragment>
 			}
 		/>
 		<Description info="Example Order Button" />
 		<ExampleDark
 			example={
-				<View>
+				<React.Fragment>
 					<Code>{'<OrderButton order="unset" />'}</Code>
 					<OrderButton order="unset" />
 					<Code>{'<OrderButton order="up" />'}</Code>
 					<OrderButton order="up" />
 					<Code>{'<OrderButton order="down" />'}</Code>
 					<OrderButton order="down" />
-				</View>
+				</React.Fragment>
 			}
 		/>
 	</PageContainer>
